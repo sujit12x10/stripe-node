@@ -8,15 +8,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 app.use(express.json())
 app.use(cors())
 
-app.get('/', (req, res) => res.send('Home Page Route'));
-
-app.get('/about', (req, res) => res.send('About Page Route'));
-
-app.get('/portfolio', (req, res) => res.send('Portfolio Page Route'));
-
-app.get('/contact', (req, res) => res.send('Contact Page Route'));
-
-app.get('/new', (req, res) => res.send('New Page Route'));
+app.get('/', (req, res) => res.send('BLACK Payment home'));
 
 const port = process.env.PORT || 7000;
 
@@ -43,10 +35,8 @@ app.post("/api/create-checkout-session", async(req, res) => {
         payment_method_types: ["card"],
         line_items: lineItems,
         mode: "payment",
-        // success_url: "/api/success?session_id={CHECKOUT_SESSION_ID}",
-        // cancel_url: "/api/cancel",  
-        success_url: "https://react-e-store-98j2.vercel.app/api/success?session_id={CHECKOUT_SESSION_ID}",
-        cancel_url: "https://react-e-store-98j2.vercel.app/api/cancel",  
+        success_url: "https://blake-online-store.vercel.app/success?session_id={CHECKOUT_SESSION_ID}",
+        cancel_url: "https://blake-online-store.vercel.app/cancel",  
         discounts: couponCode, 
     })
 
