@@ -16,9 +16,9 @@ app.get('/portfolio', (req, res) => res.send('Portfolio Page Route'));
 
 app.get('/contact', (req, res) => res.send('Contact Page Route'));
 
-const port = process.env.PORT || 7000;
+app.get('/new', (req, res) => res.send('New Page Route'));
 
-// here
+const port = process.env.PORT || 7000;
 
 // Checkout API
 app.get('/', (req, res) => res.send('Home Page Route'));
