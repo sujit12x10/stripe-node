@@ -43,13 +43,14 @@ app.post("/api/create-checkout-session", async(req, res) => {
         payment_method_types: ["card"],
         line_items: lineItems,
         mode: "payment",
-        success_url: "/api/success?session_id={CHECKOUT_SESSION_ID}",
-        cancel_url: "/api/cancel",  
+        // success_url: "/api/success?session_id={CHECKOUT_SESSION_ID}",
+        // cancel_url: "/api/cancel",  
+        success_url: "https://react-e-store-98j2.vercel.app/api/success?session_id={CHECKOUT_SESSION_ID}",
+        cancel_url: "https://react-e-store-98j2.vercel.app/api/cancel",  
         discounts: couponCode, 
     })
 
-    // res.json({id: session.id})
-    res.json("Hello")
+    res.json({id: session.id})
 })
 
 app.listen(port, () => {
