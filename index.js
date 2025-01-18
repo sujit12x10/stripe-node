@@ -48,7 +48,8 @@ app.post("/api/create-checkout-session", async(req, res) => {
         discounts: couponCode, 
     })
 
-    res.json({id: session.id})
+    // res.json({id: session.id})
+    res.json("Hello")
 })
 
 app.listen(port, () => {
